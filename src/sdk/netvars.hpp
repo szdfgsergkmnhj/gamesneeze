@@ -54,6 +54,7 @@ namespace Netvar {
         {std::make_pair("DT_PlantedC4", "m_bBombTicking"), 0},
         {std::make_pair("DT_PlantedC4", "m_nBombSite"), 0},
         {std::make_pair("DT_PlantedC4", "m_bBombDefused"), 0},
+        {std::make_pair("DT_PlantedC4", "m_vecViewOffset[1]"), 0},
 
         /* Tonemap Controller */
         {std::make_pair("DT_EnvTonemapController", "m_bUseCustomAutoExposureMin"), 0},

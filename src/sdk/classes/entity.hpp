@@ -156,6 +156,7 @@ public:
 	NETVAR("DT_PlantedC4", "m_bBombTicking", ticking, int);
 	NETVAR("DT_PlantedC4", "m_nBombSite", bsite, int);
 	NETVAR("DT_PlantedC4", "m_bBombDefused", defused, int);
+	NETVAR("DT_PlantedC4", "m_vecViewOffset[1]", viewOffset, Vector);
 };
 
 class TonemapController {
