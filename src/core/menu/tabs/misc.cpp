@@ -37,6 +37,14 @@ void Menu::drawMiscTab() {
                 ImGui::Checkbox("Use Spam", &CONFIGBOOL("Misc>Misc>Misc>Use Spam"));
                 ImGui::Checkbox("Disable Setting Cvars", &CONFIGBOOL("Misc>Misc>Misc>Disable Setting Cvars"));
                 ImGui::Checkbox("Disable Post Processing", &CONFIGBOOL("Misc>Misc>Misc>Disable Post Processing"));
+                
+                if (CONFIGBOOL("Misc>Misc>Movement>Blockbot")) {
+                    static bool toggled = false;
+                    Menu::CustomWidgets::drawKeyBinder("Key", &CONFIGINT("Misc>Misc>Movement>Blockbot Key"), &toggled);
+                    ImGui::SameLine();
+                }
+                ImGui::Checkbox("Blockbot", &CONFIGBOOL("Misc>Misc>Movement>Blockbot"));
+
                 ImGui::EndChild();
             }
 
@@ -135,7 +143,7 @@ void Menu::drawMiscTab() {
             ImGui::Columns(1);
             ImGui::TextDisabled("Credits!");
             if (ImGui::IsItemHovered())
-                ImGui::SetTooltip("sekc (of course)\nAll other contributors on GitHub (xXx-sans-xXx, luk1337, cristeigabriel, crazily, dave (@dweee), keenan, u2ooS, tango1337, nigma1337, vampur, all and any other contributors, and allbombson)\nand ocornut for his great ImGui UI framework");
+                ImGui::SetTooltip("sekc (ofcourse)\nAll other contributors on GitHub (xXx-sans-xXx, luk1337, cristeigabriel, crazily, dave (@dweee), keenan, u2ooS, tango1337, allbombson, nigma1337, and all the other contributors)\nand ocornut for his great ImGui UI framework");
             ImGui::EndTabItem();
         }
 

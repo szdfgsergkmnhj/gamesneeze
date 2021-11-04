@@ -28,5 +28,4 @@ namespace Globals {
     inline float FOV;
 
     inline Player* localPlayer;
-    inline QAngle oldViewangles;
 }

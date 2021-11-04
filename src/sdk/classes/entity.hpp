@@ -114,18 +114,6 @@ public:
 		return *reinterpret_cast<int*>((uintptr_t)this + GETNETVAROFFSET("DT_BaseEntity", "m_nRenderMode") + 1);
 	}
 
-	void saveData(const char *context, int slot, int type) {
-		Offsets::saveData(this, context, slot, type);
-	}
-
-	void restoreData (const char *context, int slot, int type) {
-		Offsets::restoreData(this, context, slot, type);
-	}
-
-	void onPostRestoreData() {
-		Offsets::onPostRestoreData(this);
-	}
-
 	bool isEnemy();
 	bool getHitboxBones(matrix3x4_t* boneMatrix);
 	bool getAnythingBones(matrix3x4_t* boneMatrix);
@@ -162,6 +150,12 @@ public:
 class PlantedC4 : public Item {
 public:
 	NETVAR("DT_PlantedC4", "m_flC4Blow", time, float);
+	NETVAR("DT_PlantedC4", "m_flDefuseCountDown", defusetime, float);
+	NETVAR("DT_PlantedC4", "m_flDefuseLength", defusel, float);
+	NETVAR("DT_PlantedC4", "m_hBombDefuser", defuser, int);
+	NETVAR("DT_PlantedC4", "m_bBombTicking", ticking, int);
+	NETVAR("DT_PlantedC4", "m_nBombSite", bsite, int);
+	NETVAR("DT_PlantedC4", "m_bBombDefused", defused, int);
 };
 
 class TonemapController {

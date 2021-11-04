@@ -259,12 +259,24 @@ void Features::ESP::draw() {
                         }
 
 
-                        /* Planted C4 ESP */
+                        /* Planted C4 ESP (hurts my head)*/
                         else if (clientClass->m_ClassID == EClassIds::CPlantedC4) {
                             float bombTime = ((PlantedC4*)ent)->time() - Interfaces::globals->curtime;
+                            int isdefused = ((PlantedC4*)ent)->defused();
+                            float deftime = ((PlantedC4*)ent)->defusetime() - Interfaces::globals->curtime;
+                            int defuser = ((PlantedC4*)ent)->defuser();
+                            //janky but atleast the timer doesnt keep going after someone stops defusing
+                            if (deftime <= 0.f)
+                            deftime = 0;
+                            else if (defuser == -1)
+                            deftime = 0;
+                            
                             if (bombTime >= 0.f) {
                                 char label[32] = "";
-                                snprintf(label, 32, "Planted C4\n%.3f", bombTime);
+                                if (isdefused == 0)
+                                snprintf(label, 32, "Planted C4\n%.3f\\%.3f", bombTime, deftime);
+                                else 
+                                snprintf(label, 32, "Planted C4\nDefused!");
                                 drawGenericEnt(ent, CONFIGBOOL("Visuals>World>Items>Planted C4 Box"), CONFIGCOL("Visuals>World>Items>Planted C4 Box Color"), CONFIGBOOL("Visuals>World>Items>Planted C4 Label") ? label : "");
                                 AutoDefuse::onBombRender((PlantedC4*)ent);
                             }

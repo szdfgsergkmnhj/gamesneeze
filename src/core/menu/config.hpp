@@ -281,6 +281,8 @@ namespace Config {
                 CONFIGITEM("Visuals>World>World>FOV", 90),
                 CONFIGITEM("Visuals>World>World>Viewmodel FOV", 0),
                 CONFIGITEM("Visuals>World>World>Third Person", false),
+                CONFIGITEM("Visuals>World>World>Third Person Distance", 120),
+                CONFIGITEM("Visuals>World>World>Third Person Key", 0),
                 CONFIGITEM("Visuals>World>World>No Flash", false),
                 CONFIGITEM("Visuals>World>World>No Flash Amount", 0),
                 CONFIGITEM("Visuals>World>World>Bullet Tracers", false),
@@ -307,6 +309,7 @@ namespace Config {
                 CONFIGITEM("Visuals>World>Items>Planted C4 Box", false),
                 CONFIGITEM("Visuals>World>Items>Planted C4 Box Color", ImColor(255, 255, 255, 255)),
                 CONFIGITEM("Visuals>World>Items>Planted C4 Label", false),
+                CONFIGITEM("Visuals>World>Items>C4 Timer", false),
 
                 CONFIGITEM("Visuals>World>Items>Chicken Box", false),
                 CONFIGITEM("Visuals>World>Items>Chicken Box Color", ImColor(255, 255, 255, 255)),
@@ -356,6 +359,8 @@ namespace Config {
             CONFIGITEM("Misc>Misc>Misc>Chat Filter Bypass", false),
             CONFIGITEM("Misc>Misc>Misc>Use Spam", false),
             CONFIGITEM("Misc>Misc>Misc>Use Spam Key", 0),
+            CONFIGITEM("Misc>Misc>Movement>Blockbot", false),
+            CONFIGITEM("Misc>Misc>Movement>Blockbot Key", 0),
             CONFIGITEM("Misc>Misc>Misc>Disable Setting Cvars", false),
             CONFIGITEM("Misc>Misc>Misc>Disable Post Processing", false),
 

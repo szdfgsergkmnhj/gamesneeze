@@ -217,7 +217,18 @@ void Menu::drawVisualsTab() {
                 ImGui::Text("Viewmodel FOV");
                 ImGui::SetNextItemWidth(ImGui::GetWindowContentRegionWidth());
                 ImGui::SliderInt("##Viewmodel FOV", &CONFIGINT("Visuals>World>World>Viewmodel FOV"), 0, 130);
+                //there has to be a better way to do this
+                if (CONFIGBOOL("Visuals>World>World>Third Person")){
+                    static bool toggled = false;
+                    CustomWidgets::drawKeyBinder("Key", &CONFIGINT("Visuals>World>World>Third Person Key"), &toggled);
+                    ImGui::SameLine();
+                }
                 ImGui::Checkbox("Third Person", &CONFIGBOOL("Visuals>World>World>Third Person"));
+                if (CONFIGBOOL("Visuals>World>World>Third Person")){
+                    ImGui::Text("Third Person Distance");
+                    ImGui::SetNextItemWidth(ImGui::GetWindowContentRegionWidth());
+                    ImGui::SliderInt("##Third Person Distance", &CONFIGINT("Visuals>World>World>Third Person Distance"), 0, 200);
+                }
                 ImGui::Checkbox("No Flash", &CONFIGBOOL("Visuals>World>World>No Flash"));
                 ImGui::Text("Flash Amount");
                 ImGui::SetNextItemWidth(ImGui::GetWindowContentRegionWidth());
@@ -279,6 +290,7 @@ void Menu::drawVisualsTab() {
                     ImGui::ColorEdit4("Planted C4 Box Color", (float*)&CONFIGCOL("Visuals>World>Items>Planted C4 Box Color"), ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel | ImGuiColorEditFlags_PickerHueWheel);
                     ImGui::SameLine();
                 }
+                ImGui::Checkbox("C4 Timer", &CONFIGBOOL("Visuals>World>Items>C4 Timer"));
                 ImGui::Checkbox("Planted C4 Box", &CONFIGBOOL("Visuals>World>Items>Planted C4 Box"));
                 ImGui::Checkbox("Planted C4 Label", &CONFIGBOOL("Visuals>World>Items>Planted C4 Label"));
                 ImGui::Separator();

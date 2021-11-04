@@ -48,6 +48,12 @@ namespace Netvar {
 
         /* Bomb */
         {std::make_pair("DT_PlantedC4", "m_flC4Blow"), 0},
+        {std::make_pair("DT_PlantedC4", "m_flDefuseCountDown"), 0},
+        {std::make_pair("DT_PlantedC4", "m_flDefuseLength"), 0},
+        {std::make_pair("DT_PlantedC4", "m_hBombDefuser"), 0},
+        {std::make_pair("DT_PlantedC4", "m_bBombTicking"), 0},
+        {std::make_pair("DT_PlantedC4", "m_nBombSite"), 0},
+        {std::make_pair("DT_PlantedC4", "m_bBombDefused"), 0},
 
         /* Tonemap Controller */
         {std::make_pair("DT_EnvTonemapController", "m_bUseCustomAutoExposureMin"), 0},
@@ -97,17 +103,6 @@ namespace Offsets {
     inline unsigned int animState;
     inline CMoveData* moveData;
 
-    typedef void (*SaveData)(void*, const char*, int , int);
-    inline SaveData saveData;
-
-    typedef void (*RestoreData)(void*, const char*, int , int);
-    inline RestoreData restoreData;
-
-    typedef void (*OnPostRestoreData)(void*);
-    inline OnPostRestoreData onPostRestoreData;
-
-    typedef void (*RestoreEntityToPredictedFrame)(void*, int, int);
-    inline RestoreEntityToPredictedFrame restoreEntityToPredictedFrame;
 }
 
 #define GETNETVAROFFSET(table, prop) Netvar::offsets.at({table, prop})
